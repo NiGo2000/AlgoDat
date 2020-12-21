@@ -8,17 +8,18 @@ public class SettingsController : MonoBehaviour
 {
 
     public Dropdown resolutionDropdown;
+    public Dropdown graphicsDropdown;
     public AudioMixer audioMixer;
+    public Slider volumeSlider;
+    float currentVolume;
 
-    Resolution[] resolutions;
+    Resolution[] resolutions;          
    
     // Start is called before the first frame update
     void Start()
     {
 
         resolutions = Screen.resolutions;
-
-        resolutionDropdown.ClearOptions();                                          //clear all options
 
         List<string> ResolutionOptions = new List<string>();                        //create list of strings with our options
 
@@ -36,8 +37,8 @@ public class SettingsController : MonoBehaviour
         }
 
         resolutionDropdown.AddOptions(ResolutionOptions);             //added our options list to our resolution dropdown
-        resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+        LoadSettings(currentResolutionIndex);
 
     }
 
@@ -49,16 +50,71 @@ public class SettingsController : MonoBehaviour
     
     public void Volume(float volume)
     {
-        audioMixer.SetFloat("Volume", volume);
+        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);
+        currentVolume = volume;
     }
 
     public void SetGraphics(int graphicIndex)
     {
         QualitySettings.SetQualityLevel(graphicIndex);
+        graphicsDropdown.value = graphicIndex;
+
+
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
+
+    public void SaveSettings()                              //save settings
+    {
+        PlayerPrefs.SetInt("GraphicSettings", graphicsDropdown.value);
+        PlayerPrefs.SetInt("ResolutionSettings", resolutionDropdown.value);
+        PlayerPrefs.SetInt("FullscreenSettings", System.Convert.ToInt32(Screen.fullScreen));
+        PlayerPrefs.SetFloat("VolumeSettings", currentVolume);
+    }
+
+    public void LoadSettings(int currentResolutionIndex)            //load settings
+    {
+        if (PlayerPrefs.HasKey("GraphicSettings"))
+        {
+            graphicsDropdown.value = PlayerPrefs.GetInt("GraphicSettings");
+        }
+        else
+        {
+            graphicsDropdown.value = 3;
+        }
+
+
+        if (PlayerPrefs.HasKey("ResolutionSettings"))
+        {
+            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettings");
+        }
+        else
+        {
+            resolutionDropdown.value = currentResolutionIndex;
+        }
+
+
+        if (PlayerPrefs.HasKey("FullscreenSettings"))
+        {
+            Screen.fullScreen = System.Convert.ToBoolean(PlayerPrefs.GetInt("FullscreenSettings"));
+        }
+        else
+        {
+            Screen.fullScreen = true;
+        }
+
+        if (PlayerPrefs.HasKey("VolumeSettings"))
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("VolumeSettings");
+        }
+        else
+        {
+            volumeSlider.value = PlayerPrefs.GetFloat("VolumeSettings");
+        }
+    }
+
+   
 }
