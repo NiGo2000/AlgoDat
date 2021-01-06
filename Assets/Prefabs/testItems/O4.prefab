@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6490719265174958356}
   - component: {fileID: 2968335778938734517}
   - component: {fileID: 4196078458192683106}
-  - component: {fileID: 1911380987815751275}
   m_Layer: 0
   m_Name: O4
   m_TagString: Untagged
@@ -26,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8408938803049542401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.7, y: 12.87, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 145.91846, y: 74.2058, z: 7.5855074}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -40,7 +39,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8408938803049542401}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: -1620153904649332062, guid: f9534e64a130b6143828fc669aef76a4, type: 3}
 --- !u!23 &4196078458192683106
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +59,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d1b14dd0da9f59f4c8cd2c4f854aff61, type: 2}
+  - {fileID: -876546973899608171, guid: f9534e64a130b6143828fc669aef76a4, type: 3}
+  - {fileID: -3846018093981099296, guid: f9534e64a130b6143828fc669aef76a4, type: 3}
+  - {fileID: -6478536213147159724, guid: f9534e64a130b6143828fc669aef76a4, type: 3}
+  - {fileID: 4874126678125670354, guid: f9534e64a130b6143828fc669aef76a4, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -82,16 +84,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1911380987815751275
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8408938803049542401}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
