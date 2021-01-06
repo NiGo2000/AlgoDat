@@ -39,4 +39,6 @@ public class btnDefaultCase : MonoBehaviour
     itemCost[14] = 213;
 
   }
+
+
 }
