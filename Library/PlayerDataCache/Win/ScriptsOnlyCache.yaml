@@ -5,6 +5,7 @@ ScriptsOnlyBuild:
     - MainMenuController
     - MusicPlayer
     - NodeTag
+    - PauseMenuController
     - SettingsController
     - SortingManager
     - btnBuildTree
@@ -32,6 +33,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
     - UnityEngine.UI.Mask
+    - UnityEngine.UI.RawImage
     - UnityEngine.UI.ScrollRect
     - UnityEngine.UI.Scrollbar
     - UnityEngine.UI.Slider
@@ -75,6 +77,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12068}
     - Class: 114
       Script: {instanceID: 12514}
+    - Class: 114
+      Script: {instanceID: 13020}
     - Class: 114
       Script: {instanceID: 13276}
     - Class: 114
@@ -145,25 +149,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12020}
     - Class: 114
+      Script: {instanceID: 12022}
+    - Class: 114
       Script: {instanceID: 12058}
     - Class: 114
       Script: {instanceID: 12068}
+    - Class: 114
+      Script: {instanceID: 12412}
     - Class: 114
       Script: {instanceID: 12514}
     - Class: 114
       Script: {instanceID: 12528}
     - Class: 114
+      Script: {instanceID: 12750}
+    - Class: 114
       Script: {instanceID: 12926}
     - Class: 114
       Script: {instanceID: 12992}
+    - Class: 114
+      Script: {instanceID: 13020}
     - Class: 114
       Script: {instanceID: 13184}
     - Class: 114
       Script: {instanceID: 13560}
     - Class: 114
+      Script: {instanceID: 13622}
+    - Class: 114
       Script: {instanceID: 13834}
     - Class: 114
+      Script: {instanceID: 13964}
+    - Class: 114
       Script: {instanceID: 13978}
+    - Class: 114
+      Script: {instanceID: 13996}
+    - Class: 114
+      Script: {instanceID: 14008}
+    - Class: 114
+      Script: {instanceID: 14016}
+    - Class: 114
+      Script: {instanceID: 18136}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -183,6 +207,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     - Class: 850595691
       Script: {instanceID: 0}
@@ -229,6 +259,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 12750}
     - Class: 114
       Script: {instanceID: 12992}
+    - Class: 114
+      Script: {instanceID: 13020}
     - Class: 114
       Script: {instanceID: 13248}
     - Class: 114
@@ -950,7 +982,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: c99173f9dca1ea38aef61d307835b3e4
+      Hash: 910952d7e30184d315e102cfa1aa489f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenuController
@@ -983,4 +1015,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/Credits.unity
   - Assets/Scenes/GameScene.unity
-  playerPath: C:/Users/juri/Desktop/AlgoDat/test/AlgoDat.exe
+  playerPath: C:/Users/nick-/OneDrive/Desktop/AlgoDat/TestBuild/AlgoDat.exe

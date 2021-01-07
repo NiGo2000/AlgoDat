@@ -9,12 +9,15 @@ public class PauseMenuController : MonoBehaviour
     public GameObject PauseMenuUI;
     public GameObject GameSceneUI;
     public GameObject PauseMenuCamera;
+    public GameObject Background;
     public bool SettingsUIOpen = false;
     
 
 
     public void ResumeButton()                                
     {
+
+        Background.SetActive(false);
         PauseMenuUI.SetActive(false);
         GameSceneUI.SetActive(true);
         PauseMenuCamera.SetActive(false);
@@ -53,6 +56,7 @@ public class PauseMenuController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == false) //opens pause menu
         {
             Time.timeScale = 0;
+            Background.SetActive(true);
             PauseMenuCamera.SetActive(true);
             GameSceneUI.SetActive(false);
             PauseMenuUI.SetActive(true);
