@@ -22,14 +22,14 @@ public class btnDefaultCase : MonoBehaviour
   public void btnDefaultCase_Click()
   {
     //Test data
-    itemCost[0] = 32;
-    itemCost[1] = 53;
-    itemCost[2] = 3;
-    itemCost[3] = 65;
-    itemCost[4] = 99;
-    itemCost[5] = 42;
-    itemCost[6] = 17;
-    itemCost[7] = 333;
+    itemCost[0] = 14;
+    itemCost[1] = 58;
+    itemCost[2] = 87;
+    itemCost[3] = 4;
+    itemCost[4] = 0;
+    itemCost[5] = 9;
+    itemCost[6] = 26;
+    itemCost[7] = 12;
     itemCost[8] = 133;
     itemCost[9] = 33;
     itemCost[10] = 733;

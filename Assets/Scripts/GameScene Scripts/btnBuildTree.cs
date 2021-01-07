@@ -12,7 +12,7 @@ public class btnBuildTree : MonoBehaviour
   public Vector3 offset;
   private float speed = 0.5f;
 
-  private SortingManager sortingManager;
+  private SortierManager sortManager;
   private bool done = true;
   private System.Collections.Generic.List<int> array;
   private int g = 0;
@@ -21,8 +21,8 @@ public class btnBuildTree : MonoBehaviour
 
   void Start()
   {
-    GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortingManager);
-    this.sortingManager = managerObj.GetComponent<SortingManager>();
+    GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortierManager);
+    this.sortManager = managerObj.GetComponent<SortierManager>();
 
     if (array == null)
     {
@@ -36,12 +36,7 @@ public class btnBuildTree : MonoBehaviour
   {
     if (done) { return; }
 
-    this.sortingManager.stop = true;
-    // GameObject[] nodes = GameObject.FindGameObjectsWithTag(Tags.NodePrefab);
-    // foreach (var item in nodes)
-    // {
-    //   Destroy(item);
-    // }
+    this.sortManager.stop = true;
 
     System.Collections.Generic.List<int> targetList = new System.Collections.Generic.List<int>();
     System.Collections.Generic.List<GameObject> lineNodes = new System.Collections.Generic.List<GameObject>();
@@ -58,7 +53,7 @@ public class btnBuildTree : MonoBehaviour
           Transform lineNode = Instantiate(btnDefaultCase.itemHolder[g]) as Transform;
           lineNode.position = child.position;
 
-          DelayShow moveToTrichter = lineNode.gameObject.AddComponent<DelayShow>();
+          Delay moveToTrichter = lineNode.gameObject.AddComponent<Delay>();
           moveToTrichter.showTime = index / 2f + now;
           lineNodes.Add(lineNode.gameObject);
           targetList.Add(this.array[index]);
@@ -77,22 +72,15 @@ public class btnBuildTree : MonoBehaviour
       if (child != null)
       {
 
-        string name = Names.GetLineNodeName(index);
-        GameObject lineNode = lineNodes[index];// GameObject.Find(name);
+        string name = GetLineNodeName(index);
+        GameObject lineNode = lineNodes[index];
         Transform treeNode = Instantiate(btnDefaultCase.itemHolder[k]) as Transform;
         treeNode.position = lineNode.transform.position;
-        treeNode.name = Names.GetTreeNodeName(index);
+        treeNode.name = GetTreeNodeName(index);
         k++;
         {
-          //   treeNode.GetComponent<Renderer>().material = lineNode.GetComponentInChildren<Renderer>().material;
-          //   treeNode.GetComponent<Renderer>().enabled = false;
-          //   TextMesh textMesh = treeNode.GetComponentInChildren<TextMesh>();
-          //   textMesh.text = targetList[index].ToString();
-          //   textMesh.GetComponent<Renderer>().enabled = false;
-        }
-        {
-          DelayShow moveToTrichter = treeNode.gameObject.AddComponent<DelayShow>();
-          moveToTrichter.showTime = lineNode.GetComponent<DelayShow>().showTime;
+          Delay moveToTrichter = treeNode.gameObject.AddComponent<Delay>();
+          moveToTrichter.showTime = lineNode.GetComponent<Delay>().showTime;
         }
         {
           Move moveToTrichter = treeNode.gameObject.AddComponent<Move>();
@@ -125,14 +113,14 @@ public class btnBuildTree : MonoBehaviour
       this.gameObject.SetActive(false);
     }
 
-    this.sortingManager.targetList = targetList;
-    this.sortingManager.lineNodes = lineNodes;
-    this.sortingManager.treeNodes = treeNodes;
+    this.sortManager.targetList = targetList;
+    this.sortManager.lineNodes = lineNodes;
+    this.sortManager.treeNodes = treeNodes;
 
     this.done = true;
-    this.sortingManager.stop = false;
+    this.sortManager.stop = false;
 
-    this.btnStepText.text = this.sortingManager.GetNextStepName();
+    this.btnStepText.text = this.sortManager.GetNextStepName();
 
   }
 
@@ -147,4 +135,15 @@ public class btnBuildTree : MonoBehaviour
 
     this.done = false;
   }
+    public static string GetLineNodeName(int index)
+    {
+        string name = string.Format("line {0}", index);
+        return name;
+    }
+
+    public static string GetTreeNodeName(int index)
+    {
+        string name = string.Format("tree node {0}", index);
+        return name;
+    }
 }

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class btnStep : MonoBehaviour
 {
-    private SortingManager sortingManager;
+    private SortierManager sortingManager;
     private UnityEngine.UI.Text text;
 
     // Use this for initialization
     void Start()
     {
-        GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortingManager);
-        this.sortingManager = managerObj.GetComponent<SortingManager>();
+        GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortierManager);
+        this.sortingManager = managerObj.GetComponent<SortierManager>();
 
         this.text = this.GetComponentInChildren<UnityEngine.UI.Text>();
     }

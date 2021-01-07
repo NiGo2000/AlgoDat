@@ -50,7 +50,7 @@ public class SettingsController : MonoBehaviour
     
     public void Volume(float volume)
     {
-        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);                 
+        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);                 //set volume for 1 to 0 and for 0.0001 t0 -80 (MainMixerSound)
         currentVolume = volume;
     }
 
