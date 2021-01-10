@@ -17,7 +17,7 @@ public class MusicPlayer : MonoBehaviour
         audioSource.loop = false;
     }
 
-    private AudioClip GetRandomClip()               //randomizes the order of the songs
+    private AudioClip RecallRandomTrack()               //randomizes the order of the songs
     {
         return tracks[Random.Range(0, tracks.Length)];
     }
@@ -34,7 +34,7 @@ public class MusicPlayer : MonoBehaviour
 
         if (!audioSource.isPlaying)  //plays the songs
         {
-            audioSource.clip = GetRandomClip();
+            audioSource.clip = RecallRandomTrack();
             audioSource.Play();
         }
 

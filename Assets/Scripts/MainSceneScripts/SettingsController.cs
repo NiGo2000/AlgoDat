@@ -7,59 +7,23 @@ using UnityEngine.Audio;
 public class SettingsController : MonoBehaviour
 {
 
-    public Dropdown resolutionDropdown;
-    public Dropdown graphicsDropdown;
-    public AudioMixer audioMixer;
+    public Dropdown qualityDropdown;
+    public AudioMixer backgroundAudio;
     public Slider volumeSlider;
+    public Toggle fullscreenToggle;
     float currentVolume;
+    Resolution[] resolutions;
 
-    Resolution[] resolutions;          
-   
     // Start is called before the first frame update
     void Start()
     {
-
-        resolutions = Screen.resolutions;
-
-        List<string> ResolutionOptions = new List<string>();                        //create list of strings with our options
-
-        int currentResolutionIndex = 0;
-
-        for (int j = 0; j < resolutions.Length; j++)                                //create a formatted string for our resolution
-        {
-            string option = resolutions[j].width + "x" + resolutions[j].height;     //"width" + "x" + "height"
-            ResolutionOptions.Add(option);                                                    // added to our options list
-
-            if (resolutions[j].width == Screen.currentResolution.width && resolutions[j].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = j;
-            }
-        }
-
-        resolutionDropdown.AddOptions(ResolutionOptions);             //added our options list to our resolution dropdown
-        resolutionDropdown.RefreshShownValue();
-        LoadSettings(currentResolutionIndex);
-
-    }
-
-    public void SetResolution(int resolutionIndex)                                     //set resolution
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+        LoadSettings(); 
     }
     
     public void Volume(float volume)
     {
-        audioMixer.SetFloat("Volume", Mathf.Log10(volume) * 20);                 //set volume for 1 to 0 and for 0.0001 t0 -80 (MainMixerSound)
+        backgroundAudio.SetFloat("Volume", Mathf.Log10(volume) * 20);                 //set volume for 1 to 0 and for 0.0001 t0 -80 (MainMixerSound)
         currentVolume = volume;
-    }
-
-    public void SetGraphics(int graphicIndex)
-    {
-        QualitySettings.SetQualityLevel(graphicIndex);
-        graphicsDropdown.value = graphicIndex;
-
-
     }
 
     public void SetFullscreen(bool isFullscreen)
@@ -67,33 +31,39 @@ public class SettingsController : MonoBehaviour
         Screen.fullScreen = isFullscreen;
     }
 
+    public void FullscreenButton()
+    {
+        if(fullscreenToggle.isOn == true)
+        {
+            fullscreenToggle.isOn = false;
+        }
+        else
+        {
+            fullscreenToggle.isOn = true;
+        }
+    }
+
+    public void SetQuality(int qualityIndex)
+    {
+        QualitySettings.SetQualityLevel(qualityIndex);
+    }
+
     public void SaveSettings()                              //save settings
     {
-        PlayerPrefs.SetInt("GraphicSettings", graphicsDropdown.value);
-        PlayerPrefs.SetInt("ResolutionSettings", resolutionDropdown.value);
+        PlayerPrefs.SetInt("QualitySettings", qualityDropdown.value);
         PlayerPrefs.SetInt("FullscreenSettings", System.Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumeSettings", currentVolume);
     }
 
-    public void LoadSettings(int currentResolutionIndex)            //load settings
+    public void LoadSettings()            //load settings //int currentResolutionIndex
     {
-        if (PlayerPrefs.HasKey("GraphicSettings"))
+        if (PlayerPrefs.HasKey("QualitySettings"))
         {
-            graphicsDropdown.value = PlayerPrefs.GetInt("GraphicSettings");
+            qualityDropdown.value = PlayerPrefs.GetInt("QualitySettings");
         }
         else
         {
-            graphicsDropdown.value = 3;
-        }
-
-
-        if (PlayerPrefs.HasKey("ResolutionSettings"))
-        {
-            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettings");
-        }
-        else
-        {
-            resolutionDropdown.value = currentResolutionIndex;
+            qualityDropdown.value = 3;
         }
 
 
@@ -116,5 +86,8 @@ public class SettingsController : MonoBehaviour
         }
     }
 
-   
+   void Update()
+    {
+        SaveSettings();
+    }
 }

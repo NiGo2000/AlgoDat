@@ -49,26 +49,25 @@ public class PauseMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    
+    public void OpenPauseMenuButton()
+    {
+        Time.timeScale = 0;
+        Background.SetActive(true);
+        PauseMenuCamera.SetActive(true);
+        GameSceneUI.SetActive(false);
+        PauseMenuUI.SetActive(true);
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == false) //opens pause menu
         {
-            Time.timeScale = 0;
-            Background.SetActive(true);
-            PauseMenuCamera.SetActive(true);
-            GameSceneUI.SetActive(false);
-            PauseMenuUI.SetActive(true);
-           
-
+            OpenPauseMenuButton();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == true) //close settings menu; open pause menu
         {
-            SettingsUI.SetActive(false);
-            PauseMenuUI.SetActive(true);
-            SettingsUIOpen = false;
+            SettingsBackButton();
         }
 
     }
