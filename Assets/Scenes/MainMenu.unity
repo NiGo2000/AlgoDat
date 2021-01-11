@@ -1607,7 +1607,7 @@ GameObject:
   - component: {fileID: 689518318}
   - component: {fileID: 689518317}
   m_Layer: 5
-  m_Name: QualityDropdown
+  m_Name: ResolutionDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1682,21 +1682,13 @@ MonoBehaviour:
   m_ItemImage: {fileID: 0}
   m_Value: 0
   m_Options:
-    m_Options:
-    - m_Text: LOW
-      m_Image: {fileID: 0}
-    - m_Text: MEDIUM
-      m_Image: {fileID: 0}
-    - m_Text: HIGH
-      m_Image: {fileID: 0}
-    - m_Text: ULTRA
-      m_Image: {fileID: 0}
+    m_Options: []
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1714154601}
         m_TargetAssemblyTypeName: SettingsController, Assembly-CSharp
-        m_MethodName: SetQuality
+        m_MethodName: SetResolution
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2018,7 +2010,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LOW
+  m_Text: 
 --- !u!222 &1015413600
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2519,7 +2511,7 @@ RectTransform:
   m_GameObject: {fileID: 1568082700}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.3, z: 1}
+  m_LocalScale: {x: 1, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 144323643}
   m_RootOrder: 0
@@ -2776,7 +2768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79af3acc7cebab64eb730a7d2b0b39da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  qualityDropdown: {fileID: 689518317}
+  resolutionDropdown: {fileID: 689518317}
   backgroundAudio: {fileID: 24100000, guid: e1070ff432707194c8bb660efcc5f7f4, type: 2}
   volumeSlider: {fileID: 1286865223}
   fullscreenToggle: {fileID: 442299247}

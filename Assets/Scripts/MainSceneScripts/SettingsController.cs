@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 public class SettingsController : MonoBehaviour
 {
 
-    public Dropdown qualityDropdown;
+    public Dropdown resolutionDropdown;
     public AudioMixer backgroundAudio;
     public Slider volumeSlider;
     public Toggle fullscreenToggle;
@@ -17,7 +17,29 @@ public class SettingsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LoadSettings(); 
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+        List<string> ResolutuinsOption = new List<string>();                   //create list of strings with our options
+
+        int currentResolutionsIndex = 0;
+
+        for(int j = 0; j < resolutions.Length; j++)
+        {
+            string options = resolutions[j].width + "x" + resolutions[j].height + " " + resolutions[j].refreshRate.ToString() + "Hz";         //width + "x" + height + Hz
+          
+            ResolutuinsOption.Add(options);                                                 //added to our option list
+                
+            if (resolutions[j].width == Screen.width && resolutions[j].height == Screen.height)
+             {
+                currentResolutionsIndex = j;
+             }
+        }
+    
+        resolutionDropdown.AddOptions(ResolutuinsOption);  //added our options list to our resolution dropdown
+        resolutionDropdown.value = currentResolutionsIndex;
+        resolutionDropdown.RefreshShownValue();
+
+        LoadSettings(currentResolutionsIndex); 
     }
     
     public void Volume(float volume)
@@ -29,6 +51,12 @@ public class SettingsController : MonoBehaviour
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetResolution(int resolutionIndex)
+    {
+        Resolution resolution = resolutions[resolutionIndex];
+        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
     public void FullscreenButton()
@@ -43,29 +71,23 @@ public class SettingsController : MonoBehaviour
         }
     }
 
-    public void SetQuality(int qualityIndex)
-    {
-        QualitySettings.SetQualityLevel(qualityIndex);
-    }
-
     public void SaveSettings()                              //save settings
     {
-        PlayerPrefs.SetInt("QualitySettings", qualityDropdown.value);
+        PlayerPrefs.SetInt("ResolutionSettings", resolutionDropdown.value);
         PlayerPrefs.SetInt("FullscreenSettings", System.Convert.ToInt32(Screen.fullScreen));
         PlayerPrefs.SetFloat("VolumeSettings", currentVolume);
     }
 
-    public void LoadSettings()            //load settings //int currentResolutionIndex
+    public void LoadSettings(int currentResolutionIndex)            //load settings //int currentResolutionIndex
     {
-        if (PlayerPrefs.HasKey("QualitySettings"))
+        if (PlayerPrefs.HasKey("ResolutionSettings"))
         {
-            qualityDropdown.value = PlayerPrefs.GetInt("QualitySettings");
+            resolutionDropdown.value = PlayerPrefs.GetInt("ResolutionSettings");
         }
         else
         {
-            qualityDropdown.value = 3;
+            resolutionDropdown.value = currentResolutionIndex;
         }
-
 
         if (PlayerPrefs.HasKey("FullscreenSettings"))
         {

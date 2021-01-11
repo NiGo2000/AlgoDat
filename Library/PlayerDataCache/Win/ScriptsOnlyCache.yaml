@@ -890,7 +890,7 @@ ScriptsOnlyBuild:
     className: VertexShakeB
   - hash:
       serializedVersion: 2
-      Hash: d87c14220ff97c0f910018db4130f5b7
+      Hash: 665e5cf1b74588716533721ed81e215f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SettingsController
