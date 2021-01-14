@@ -2,13 +2,13 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - Credits
+    - ExitToMainMenu
     - MainMenuController
     - MusicPlayer
     - NodeTag
     - PauseMenuController
     - SettingsController
     - SortierManager
-    - btnBuildHeap
     - btnBuildTree
     - btnDefaultCase
     - btnStep
@@ -20,6 +20,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -83,21 +84,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13054}
     - Class: 114
-      Script: {instanceID: 13568}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13634}
+      Script: {instanceID: 13628}
     - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 13632}
+    - Class: 114
+      Script: {instanceID: 13984}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -164,42 +167,46 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12416}
+      Script: {instanceID: 12414}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12534}
+      Script: {instanceID: 12532}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 12932}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13190}
+      Script: {instanceID: 13252}
     - Class: 114
-      Script: {instanceID: 13474}
+      Script: {instanceID: 13472}
     - Class: 114
-      Script: {instanceID: 13568}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13628}
     - Class: 114
-      Script: {instanceID: 13842}
+      Script: {instanceID: 13840}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13866}
     - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 14004}
+      Script: {instanceID: 13984}
     - Class: 114
-      Script: {instanceID: 14016}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 14014}
+    - Class: 114
+      Script: {instanceID: 14022}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -255,41 +262,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12416}
+      Script: {instanceID: 12414}
     - Class: 114
-      Script: {instanceID: 12520}
+      Script: {instanceID: 12518}
     - Class: 114
-      Script: {instanceID: 12556}
+      Script: {instanceID: 12554}
     - Class: 114
-      Script: {instanceID: 12756}
+      Script: {instanceID: 12752}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13254}
+      Script: {instanceID: 13252}
     - Class: 114
-      Script: {instanceID: 13272}
+      Script: {instanceID: 13270}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13568}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13628}
     - Class: 114
-      Script: {instanceID: 13760}
+      Script: {instanceID: 13758}
     - Class: 114
-      Script: {instanceID: 13876}
+      Script: {instanceID: 13874}
     - Class: 114
-      Script: {instanceID: 13972}
+      Script: {instanceID: 13970}
     - Class: 114
-      Script: {instanceID: 13986}
+      Script: {instanceID: 13984}
     - Class: 114
-      Script: {instanceID: 14004}
+      Script: {instanceID: 14002}
     - Class: 114
-      Script: {instanceID: 14024}
+      Script: {instanceID: 14022}
     - Class: 114
-      Script: {instanceID: 14048}
+      Script: {instanceID: 14046}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -336,15 +343,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12998}
+      Script: {instanceID: 12994}
     - Class: 114
-      Script: {instanceID: 13026}
+      Script: {instanceID: 13022}
     - Class: 114
-      Script: {instanceID: 13282}
+      Script: {instanceID: 13280}
     - Class: 114
-      Script: {instanceID: 13568}
+      Script: {instanceID: 13566}
     - Class: 114
-      Script: {instanceID: 13630}
+      Script: {instanceID: 13628}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -512,12 +519,6 @@ ScriptsOnlyBuild:
     className: AnimationTrack
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: btnMenu
-  - hash:
-      serializedVersion: 2
       Hash: cf9f5cf2c3145a37ac07f00e50e460f9
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -626,12 +627,6 @@ ScriptsOnlyBuild:
     className: Benchmark01
   - hash:
       serializedVersion: 2
-      Hash: f6bc0b799870b7512f507c4883639675
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Delay
-  - hash:
-      serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -696,6 +691,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ExitToMainMenu
   - hash:
       serializedVersion: 2
       Hash: e244702e0dc05782229aa524e4d757f5
@@ -830,7 +831,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+      Hash: b576cb8313bb8f61082de37fff624ec3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: btnStep

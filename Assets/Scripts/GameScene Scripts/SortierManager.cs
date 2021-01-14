@@ -7,6 +7,8 @@ public class SortierManager : MonoBehaviour
     public System.Collections.Generic.List<GameObject> lineNodes;
     public System.Collections.Generic.List<GameObject> treeNodes;
     public bool stop = false;
+    [SerializeField]
+    
 
     System.Collections.Generic.Queue<SchrittInfo> stepQueue;
 
@@ -66,9 +68,20 @@ public class SortierManager : MonoBehaviour
                     case SchrittTypen.Tausche:
                         if (schrittInfo.targetIndex != schrittInfo.childIndex)
                         {
+                            
+
                             this.treeNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.lineNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.targetList.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
+
+                            Color sortedColor = new Color(0, 0.5f, 0);
+                            schrittInfo.treeNodeTarget.GetComponentInChildren<TextMesh>().color = sortedColor;
+                            TextMesh[] textMeshes = schrittInfo.lineNodeTarget.GetComponentsInChildren<TextMesh>();
+                            foreach (var item in textMeshes)
+                            {
+                                item.color = sortedColor;
+                            }
+                            
                         }
                         else
                         {
@@ -84,7 +97,7 @@ public class SortierManager : MonoBehaviour
 
                             int targetIndex = schrittInfo.childIndex;
 
-                            AddStep4BuildSubHeap(targetIndex);
+                            buildHeap(targetIndex);
                         }
                         else
                         {
@@ -95,6 +108,7 @@ public class SortierManager : MonoBehaviour
                     default:
                         break;
                 }
+                
             }
 
             
@@ -107,13 +121,28 @@ public class SortierManager : MonoBehaviour
 
         GameObject treeNodeTarget = schrittInfo.treeNodeTarget;
         GameObject treeNodeChild = schrittInfo.treeNodeChild;
-      
-            treeNodeTarget.transform.position = Vector3.Lerp(
+       if (treeNodeTarget == treeNodeChild)
+        {
+             {                                                                             /**
+                                                                                                item wird geschüttelt, wenn bereits an richtiger stelle ohne sortierung
+                                                                                                **/
+                Vector3 newPosition = schrittInfo.treeNodeTargetPosition;
+                const float range = 0.5f;
+                newPosition.x += Random.Range(-range, range);
+                newPosition.y += Random.Range(-range, range);
+                newPosition.z += Random.Range(-range, range);
+                treeNodeTarget.transform.position = newPosition;
+            }
+    } else
+    {
+         treeNodeTarget.transform.position = Vector3.Lerp(
                 schrittInfo.treeNodeTargetPosition, schrittInfo.treeNodeChildPosition, schrittInfo.passedInterval / schrittInfo.interval);
             treeNodeChild.transform.position = Vector3.Lerp(
                 schrittInfo.treeNodeChildPosition, schrittInfo.treeNodeTargetPosition, schrittInfo.passedInterval / schrittInfo.interval);
     }
 
+    
+    }
 
 
     int GetSortedCount()
@@ -151,7 +180,8 @@ public class SortierManager : MonoBehaviour
         {
             int targetIndex = initializationSteps - targetStep;
 
-            AddStep4BuildSubHeap(targetIndex);
+            buildHeap(targetIndex);
+
 
         }
         else
@@ -165,12 +195,12 @@ public class SortierManager : MonoBehaviour
             }
             else // build sub heap.
             {
-                AddStep4BuildSubHeap(0);
+                buildHeap(0);
             }
         }
     }
 
-    private void AddStep4BuildSubHeap(int targetIndex)
+    private void buildHeap(int targetIndex)
     {
         System.Collections.Generic.List<int> targetList = this.targetList;
         System.Collections.Generic.List<GameObject> treeNodes = this.treeNodes;

@@ -52,9 +52,6 @@ public class btnBuildTree : MonoBehaviour
         {
           Transform lineNode = Instantiate(btnDefaultCase.itemHolder[g]) as Transform;
           lineNode.position = child.position;
-
-          Delay moveToTrichter = lineNode.gameObject.AddComponent<Delay>();
-          moveToTrichter.showTime = index / 2f + now;
           lineNodes.Add(lineNode.gameObject);
           targetList.Add(this.array[index]);
           g++;
@@ -78,10 +75,6 @@ public class btnBuildTree : MonoBehaviour
         treeNode.position = lineNode.transform.position;
         treeNode.name = GetTreeNodeName(index);
         k++;
-        {
-          Delay moveToTrichter = treeNode.gameObject.AddComponent<Delay>();
-          moveToTrichter.showTime = lineNode.GetComponent<Delay>().showTime;
-        }
         {
           Move moveToTrichter = treeNode.gameObject.AddComponent<Move>();
           moveToTrichter.startTime = startTime;
