@@ -17,6 +17,15 @@ public class SettingsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (Screen.fullScreen == true)
+        {
+            fullscreenToggle.isOn = true;
+        }
+        else
+        {
+            fullscreenToggle.isOn = false;
+        }
+
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> ResolutuinsOption = new List<string>();                   //create list of strings with our options
@@ -24,15 +33,15 @@ public class SettingsController : MonoBehaviour
         int currentResolutionsIndex = 0;
 
         for(int j = 0; j < resolutions.Length; j++)
-        {
-            string options = resolutions[j].width + "x" + resolutions[j].height + " " + resolutions[j].refreshRate.ToString() + "Hz";         //width + "x" + height + Hz
-          
+        { 
+           string options = resolutions[j].width + "x" + resolutions[j].height + " " + resolutions[j].refreshRate.ToString() + "Hz";         //width + "x" + height + Hz
+
             ResolutuinsOption.Add(options);                                                 //added to our option list
-                
+
             if (resolutions[j].width == Screen.width && resolutions[j].height == Screen.height)
-             {
+            {
                 currentResolutionsIndex = j;
-             }
+            }
         }
     
         resolutionDropdown.AddOptions(ResolutuinsOption);  //added our options list to our resolution dropdown
@@ -57,18 +66,6 @@ public class SettingsController : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
-
-    public void FullscreenButton()
-    {
-        if(fullscreenToggle.isOn == true)
-        {
-            fullscreenToggle.isOn = false;
-        }
-        else
-        {
-            fullscreenToggle.isOn = true;
-        }
     }
 
     public void SaveSettings()                              //save settings

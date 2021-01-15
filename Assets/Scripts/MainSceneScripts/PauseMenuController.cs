@@ -10,6 +10,7 @@ public class PauseMenuController : MonoBehaviour
     public GameObject GameSceneUI;
     public GameObject PauseMenuCamera;
     public GameObject Background;
+    public Animator CrossfadeAnim;
     public bool SettingsUIOpen = false;
 
 
@@ -58,16 +59,22 @@ public class PauseMenuController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == false) //opens pause menu
+        if (this.CrossfadeAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1)  //when the animation ends, you can open the pause menu with esc
         {
-            OpenPauseMenuButton();
-        }
+            if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == false) //opens pause menu
+            {
+                OpenPauseMenuButton();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == true) //close settings menu; open pause menu
+            if (Input.GetKeyDown(KeyCode.Escape) && SettingsUIOpen == true) //close settings menu; open pause menu
+            {
+                SettingsBackButton();
+            }
+        }
+        else
         {
-            SettingsBackButton();
+            Debug.Log("Loading Scene");
         }
-
     }
 
     

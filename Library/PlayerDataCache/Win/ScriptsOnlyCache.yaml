@@ -117,6 +117,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 225
+      Script: {instanceID: 0}
     Assets/Scenes/GameScene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -1075,7 +1077,7 @@ ScriptsOnlyBuild:
     className: SignalEmitter
   - hash:
       serializedVersion: 2
-      Hash: 275f29ae6b15bedd8d9255846113d6c9
+      Hash: 728657c2da14cd1921c2aeaf5bdaf061
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenuController

@@ -8,6 +8,9 @@ TagManager:
   - CP
   - CollTrigger
   - item
+  - LineManager
+  - TreeManager
+  - SortingManager
   layers:
   - Default
   - TransparentFX
