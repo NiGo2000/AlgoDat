@@ -6,8 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class ExitToMainMenu : MonoBehaviour
 {
- public void Exit()
+    public float crossfadeTime = 1f;
+
+    public void Exit()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) //opens pause menu
+        {
+            Exit();
+        }
     }
 }

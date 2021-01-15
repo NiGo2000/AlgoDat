@@ -905,6 +905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832540f8114594249a80f845c05f1852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crossfadeTime: 1
 --- !u!1 &877032757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2196,7 @@ MonoBehaviour:
   SettingsUI: {fileID: 0}
   MainMenuUI: {fileID: 0}
   SettingMenuOpen: 0
+  crossfadeTime: 1
 --- !u!114 &1738668292
 MonoBehaviour:
   m_ObjectHideFlags: 0

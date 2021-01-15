@@ -7,10 +7,12 @@ public class MainMenuController : MonoBehaviour
 {
     public GameObject SettingsUI;
     public GameObject MainMenuUI;
-    public bool SettingMenuOpen = false;                    
+    public bool SettingMenuOpen = false;
+    public float crossfadeTime = 1f;
 
     public void PlayButton()                                //start game
     {
+        CrossfadeScene();
         SceneManager.LoadScene("GameScene");
     }
 
@@ -39,7 +41,15 @@ public class MainMenuController : MonoBehaviour
 
     public void TutorialButton()
     {
+        CrossfadeScene();
         SceneManager.LoadScene("Tutorial");
+    }
+
+    IEnumerator CrossfadeScene()                            //plays the crossfade ui
+    {
+        GetComponent<Animator>().Play("crossfadeAnimation", -1, 0f);
+        
+        yield return new WaitForSeconds(crossfadeTime); //waiting time
     }
 
     void Update()

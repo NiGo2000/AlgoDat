@@ -11,18 +11,15 @@ public class PauseMenuController : MonoBehaviour
     public GameObject PauseMenuCamera;
     public GameObject Background;
     public bool SettingsUIOpen = false;
-    
 
 
     public void ResumeButton()                                
     {
-
         Background.SetActive(false);
         PauseMenuUI.SetActive(false);
         GameSceneUI.SetActive(true);
         PauseMenuCamera.SetActive(false);
         Time.timeScale = 1;
-
     }
 
     public void SettingsButton()
