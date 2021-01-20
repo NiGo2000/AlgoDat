@@ -45,6 +45,12 @@ public class MainMenuController : MonoBehaviour
         SceneManager.LoadScene("Tutorial");
     }
 
+    public void QuizButton()                                //start game
+    {
+        CrossfadeScene();
+        SceneManager.LoadScene("Quiz");
+    }
+
     IEnumerator CrossfadeScene()                            //plays the crossfade ui
     {
         GetComponent<Animator>().Play("crossfadeAnimation", -1, 0f);

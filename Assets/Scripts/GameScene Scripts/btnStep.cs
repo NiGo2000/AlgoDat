@@ -25,26 +25,27 @@ public class btnStep : MonoBehaviour
         
         GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortierManager);
         this.sortingManager = managerObj.GetComponent<SortierManager>();
-        this.text = this.GetComponentInChildren<UnityEngine.UI.Text>();
+        this.text = this.GetComponentInChildren<UnityEngine.UI.Text>();     
     }
 
     // Update is called once per frame
     void Update()
     {
-    
-    if(go){
-     schrittIndikator.transform.position =  Vector3.Lerp(schrittIndikator.transform.position, wp[k].position, 5* Time.deltaTime);
-    }
-              
+        this.text.text = this.sortingManager.GetNextStepName();
+
+        if (go){
+            schrittIndikator.transform.position =  Vector3.Lerp(schrittIndikator.transform.position, wp[k].position, 5* Time.deltaTime);            
+        }
+       
     }
 
     public void btnStep_Click()
     {
-      
         this.sortingManager.IncreaseStep();
-        this.text.text = this.sortingManager.GetNextStepName();
         
-        if(k == 7){
+       // this.text.text = this.sortingManager.GetNextStepName();
+
+        if (k == 7){
             schrittIndikator.transform.position = new Vector3(100, 1000, 100);
              wurzelIndikator.transform.position = wurzelElement.position;
             letztesElementIndikator.transform.position = letztesElement.position;
@@ -54,9 +55,6 @@ public class btnStep : MonoBehaviour
         }
          k++;
         go = true;
-        }
-       
-      
-       
+     }
 }
 

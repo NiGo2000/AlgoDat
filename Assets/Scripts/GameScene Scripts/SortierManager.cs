@@ -241,7 +241,7 @@ public class SortierManager : MonoBehaviour
 
     public string GetNextStepName()
     {
-        if (this.targetList.Count <= 0) { return "Benutzer Fehler"; }
+        if (this.targetList.Count <= 0) { return "Build Tree noch nicht gestartet!"; }
 
         int targetStep = this.targetStep;
 
