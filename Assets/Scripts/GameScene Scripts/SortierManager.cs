@@ -1,12 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class SortierManager : MonoBehaviour
 {
     public System.Collections.Generic.List<int> targetList;
     public System.Collections.Generic.List<GameObject> lineNodes;
     public System.Collections.Generic.List<GameObject> treeNodes;
     public bool stop = false;
+    public static bool btnversickern = false;
+    public static bool btntausch = false;
+    public static bool btnheapbuild = false;
+    
+   
     [SerializeField]
     
 
@@ -68,13 +74,12 @@ public class SortierManager : MonoBehaviour
                     case SchrittTypen.Tausche:
                         if (schrittInfo.targetIndex != schrittInfo.childIndex)
                         {
-                            
-
+                           
                             this.treeNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.lineNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.targetList.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
 
-                            Color sortedColor = new Color(0, 0.5f, 0);
+                            Color sortedColor = new Color(255, 255, 0);
                             schrittInfo.treeNodeTarget.GetComponentInChildren<TextMesh>().color = sortedColor;
                             TextMesh[] textMeshes = schrittInfo.lineNodeTarget.GetComponentsInChildren<TextMesh>();
                             foreach (var item in textMeshes)
@@ -91,6 +96,9 @@ public class SortierManager : MonoBehaviour
                     case SchrittTypen.Versickere:
                         if (schrittInfo.targetIndex != schrittInfo.childIndex)
                         {
+                            
+                          
+                            
                             this.treeNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.lineNodes.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
                             this.targetList.TauscheElement(schrittInfo.targetIndex, schrittInfo.childIndex);
@@ -100,9 +108,11 @@ public class SortierManager : MonoBehaviour
                             buildHeap(targetIndex);
                         }
                         else
-                        {
+                        {   
+                           
                             schrittInfo.treeNodeTarget.transform.position = schrittInfo.treeNodeTargetPosition;
-                            schrittInfo.lineNodeTarget.transform.position = schrittInfo.lineNodeTargetPosition;
+                            //schrittInfo.lineNodeTarget.transform.position = schrittInfo.lineNodeTargetPosition;
+                           
                         }
                         break;
                     default:
@@ -178,25 +188,35 @@ public class SortierManager : MonoBehaviour
 
         if (targetStep <= initializationSteps) // initialize heap.
         {
+            // btnheapbuild = true;
+            // btntausch = false;
+            // btnversickern = false;
             int targetIndex = initializationSteps - targetStep;
 
             buildHeap(targetIndex);
-
-
         }
         else
         {
             int sortingStepIndex = targetStep - initializationSteps;
             if (sortingStepIndex % 2 == 1) // Tausche.
             {
+                // btnheapbuild = false;
+                // btntausch = true;
+                // btnversickern = false;
                 int tailIndex = count - (sortingStepIndex + 1) / 2;
                 SchrittInfo schrittInfo = new SchrittInfo(0, tailIndex, SchrittTypen.Tausche, this);
                 this.stepQueue.Enqueue(schrittInfo);
             }
             else // build sub heap.
             {
+                // btnheapbuild = false;
+                // btntausch = false;
+                // btnversickern = true;
                 buildHeap(0);
             }
+             btnheapbuild = false;
+             btntausch = false;
+             btnversickern = false;
         }
     }
 
@@ -239,7 +259,7 @@ public class SortierManager : MonoBehaviour
         }
     }
 
-    public string GetNextStepName()
+    public string getStepName()
     {
         if (this.targetList.Count <= 0) { return "Build Tree noch nicht gestartet!"; }
 
@@ -247,7 +267,7 @@ public class SortierManager : MonoBehaviour
 
         int count = this.targetList.Count;
         int initializationSteps = count / 2 - 1;
-        if (targetStep < initializationSteps) { return "Build Heap"; }
+        if (targetStep < initializationSteps) {  btnheapbuild = true; return "Build Heap"; }
 
         int TauscheSteps = count - 1;
         int buildSubHeapSteps = count - 1;
@@ -256,8 +276,10 @@ public class SortierManager : MonoBehaviour
         int sortingStepIndex = targetStep - initializationSteps;
 
         if (sortingStepIndex % 2 == 0) // Tausche
-        { return "Tausche"; }
+        {   btntausch = true; btnheapbuild = false; return "Tausche"; }
         else
-        { return "Versickere"; }
+        { btnversickern = true; return "Versickere"; }
+         
     }
+   
 }

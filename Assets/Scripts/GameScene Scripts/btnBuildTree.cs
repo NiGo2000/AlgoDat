@@ -10,17 +10,21 @@ public class btnBuildTree : MonoBehaviour
   public Transform trichter;
   public Transform gripper;
   public Vector3 offset;
-  private float speed = 0.5f;
+  private float speed = 0.4f;
 
   private SortierManager sortManager;
   private bool done = true;
+  private bool grip = false;
   private System.Collections.Generic.List<int> array;
   private int g = 0;
   private int k = 0;
 
+  public Renderer rend;
+  public static bool btntree = false;
 
   void Start()
   {
+    
     GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortierManager);
     this.sortManager = managerObj.GetComponent<SortierManager>();
 
@@ -34,7 +38,7 @@ public class btnBuildTree : MonoBehaviour
 
   void Update()
   {
-    if (done) { return; }
+    if (done) {  return; }
 
     this.sortManager.stop = true;
 
@@ -54,12 +58,20 @@ public class btnBuildTree : MonoBehaviour
           lineNode.position = child.position;
           lineNodes.Add(lineNode.gameObject);
           targetList.Add(this.array[index]);
-          g++;
+          g++;   
 
+            foreach (Transform ln in lineNode)
+            {
+                ln.position = new Vector3(1000,1000,1000);
+            }
+            
+          
         }
+        
       }
     }
 
+    
     System.Collections.Generic.List<GameObject> treeNodes = new System.Collections.Generic.List<GameObject>();
     float startTime = Time.time;
 
@@ -69,11 +81,11 @@ public class btnBuildTree : MonoBehaviour
       if (child != null)
       {
 
-        string name = GetLineNodeName(index);
+        string name = getLineName(index);
         GameObject lineNode = lineNodes[index];
         Transform treeNode = Instantiate(btnDefaultCase.itemHolder[k]) as Transform;
         treeNode.position = lineNode.transform.position;
-        treeNode.name = GetTreeNodeName(index);
+        treeNode.name = getTreeName(index);
         k++;
         {
           Move moveToTrichter = treeNode.gameObject.AddComponent<Move>();
@@ -81,9 +93,9 @@ public class btnBuildTree : MonoBehaviour
           moveToTrichter.endTime = startTime + speed;
           moveToTrichter.startPosition = treeNode.position;
           moveToTrichter.endPosition = trichter.position;
-
         }
         {
+          
           Move GripperToTrichter = gripper.gameObject.AddComponent<Move>();
           GripperToTrichter.startTime = startTime;
           GripperToTrichter.endTime = startTime + speed;
@@ -104,6 +116,7 @@ public class btnBuildTree : MonoBehaviour
         treeNodes.Add(treeNode.gameObject);
       }
       this.gameObject.SetActive(false);
+     
     }
 
     this.sortManager.targetList = targetList;
@@ -113,12 +126,13 @@ public class btnBuildTree : MonoBehaviour
     this.done = true;
     this.sortManager.stop = false;
 
-    this.btnStepText.text = this.sortManager.GetNextStepName();
-
+    this.btnStepText.text = this.sortManager.getStepName();
+    
   }
 
   public void btnBuildTree_Click()
   {
+    btntree = true;
     int[] prices = btnDefaultCase.itemCost;
 
     foreach (var price in prices)
@@ -128,15 +142,16 @@ public class btnBuildTree : MonoBehaviour
 
     this.done = false;
   }
-    public static string GetLineNodeName(int index)
+    public static string getLineName(int index)
     {
         string name = string.Format("line {0}", index);
         return name;
     }
 
-    public static string GetTreeNodeName(int index)
+    public static string getTreeName(int index)
     {
         string name = string.Format("tree node {0}", index);
         return name;
     }
+
 }

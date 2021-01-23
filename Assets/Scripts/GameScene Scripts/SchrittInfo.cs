@@ -16,15 +16,15 @@ public class SchrittInfo
     public GameObject treeNodeTarget;
     public GameObject treeNodeChild;
 
-    public Vector3 lineNodeTargetPosition;
-    public Vector3 lineNodeChildPosition;
-    public GameObject lineNodeTarget;
-    public GameObject lineNodeChild;
+    // public Vector3 lineNodeTargetPosition;
+    // public Vector3 lineNodeChildPosition;
+    public  GameObject lineNodeTarget;
+    // public  GameObject lineNodeChild;
 
     private SortierManager sortingManager;
 
     public SchrittInfo(int targetIndex, int childIndex, SchrittTypen stepTypes, SortierManager sortingManager)
-    {
+    {   
         this.targetIndex = targetIndex;
         this.childIndex = childIndex;
 
@@ -32,15 +32,17 @@ public class SchrittInfo
         this.treeNodeChild = sortingManager.treeNodes[childIndex];
         this.treeNodeTargetPosition = this.treeNodeTarget.transform.position;
         this.treeNodeChildPosition = this.treeNodeChild.transform.position;
+        //btnStep.posSchrittIndikator.transform.position = treeNodeTarget.transform.position;
 
-        this.lineNodeTarget = sortingManager.lineNodes[targetIndex];
-        this.lineNodeChild = sortingManager.lineNodes[childIndex];
-        this.lineNodeTargetPosition = this.lineNodeTarget.transform.position;
-        this.lineNodeChildPosition = this.lineNodeChild.transform.position;
+        // this.lineNodeTarget = sortingManager.lineNodes[targetIndex];
+        // this.lineNodeChild = sortingManager.lineNodes[childIndex];
+        // this.lineNodeTargetPosition = this.lineNodeTarget.transform.position;
+        // this.lineNodeChildPosition = this.lineNodeChild.transform.position;
 
         this.stepType = stepTypes;
+     
     }
-
+ 
 
     public override string ToString()
     {

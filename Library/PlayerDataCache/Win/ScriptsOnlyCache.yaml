@@ -11,6 +11,7 @@ ScriptsOnlyBuild:
     - SortierManager
     - btnBuildTree
     - btnDefaultCase
+    - btnIndicator
     - btnStep
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
@@ -92,7 +93,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13278}
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
@@ -183,9 +184,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13020}
     - Class: 114
-      Script: {instanceID: 13252}
+      Script: {instanceID: 13250}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13278}
+    - Class: 114
+      Script: {instanceID: 13452}
     - Class: 114
       Script: {instanceID: 13472}
     - Class: 114
@@ -286,11 +289,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13020}
     - Class: 114
-      Script: {instanceID: 13252}
+      Script: {instanceID: 13250}
     - Class: 114
-      Script: {instanceID: 13270}
+      Script: {instanceID: 13268}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13278}
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
@@ -434,7 +437,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 13052}
     - Class: 114
-      Script: {instanceID: 13280}
+      Script: {instanceID: 13278}
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
@@ -512,7 +515,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 52cbfb2cf05f51d68ed26bc399d8157d
+      Hash: 733dedda172561fbb01ed3ea15f8fb6d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: btnBuildTree
@@ -800,12 +803,6 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: btnBuildHeap
-  - hash:
-      serializedVersion: 2
       Hash: 11319334e5365797f8056694f9b5dae4
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
@@ -918,6 +915,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: TMP_TextSelector_B
+  - hash:
+      serializedVersion: 2
+      Hash: 0e0094a141b60e2575d6089519d27ca9
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: btnIndicator
   - hash:
       serializedVersion: 2
       Hash: b576cb8313bb8f61082de37fff624ec3
