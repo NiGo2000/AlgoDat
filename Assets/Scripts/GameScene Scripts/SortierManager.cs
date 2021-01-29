@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 
@@ -11,10 +13,12 @@ public class SortierManager : MonoBehaviour
     public static bool btnversickern = false;
     public static bool btntausch = false;
     public static bool btnheapbuild = false;
-    
-   
-    [SerializeField]
-    
+    public GameObject image;
+    public GameObject imageFertig;
+
+
+
+
 
     System.Collections.Generic.Queue<SchrittInfo> stepQueue;
 
@@ -48,10 +52,11 @@ public class SortierManager : MonoBehaviour
     {
 
     }
-
+   
     // Update is called once per frame
     void Update()
     {
+        
         if (this.stop) { return; }
 
         System.Collections.Generic.Queue<SchrittInfo> queue = this.stepQueue;
@@ -123,7 +128,8 @@ public class SortierManager : MonoBehaviour
 
             
         }
-    }
+    
+}
 
     private void MoveInTree(SchrittInfo schrittInfo)
     {
@@ -259,6 +265,14 @@ public class SortierManager : MonoBehaviour
         }
     }
 
+   
+    private void AktiviereBild()
+    {
+
+        image.SetActive(true);
+        imageFertig.SetActive(true);
+    }
+
     public string getStepName()
     {
         if (this.targetList.Count <= 0) { return "Build Tree noch nicht gestartet!"; }
@@ -267,19 +281,30 @@ public class SortierManager : MonoBehaviour
 
         int count = this.targetList.Count;
         int initializationSteps = count / 2 - 1;
-        if (targetStep < initializationSteps) {  btnheapbuild = true; return "Build Heap"; }
+        if (targetStep < initializationSteps) 
+        {  btnheapbuild = true; return "Build Heap"; }
 
         int TauscheSteps = count - 1;
         int buildSubHeapSteps = count - 1;
-        if (targetStep >= initializationSteps + TauscheSteps + buildSubHeapSteps) { return "Fertig"; }
+        if (targetStep >= initializationSteps + TauscheSteps + buildSubHeapSteps) {
+            AktiviereBild();
+            return "Fertig";
 
-        int sortingStepIndex = targetStep - initializationSteps;
+        }
+
+    
+
+    int sortingStepIndex = targetStep - initializationSteps;
 
         if (sortingStepIndex % 2 == 0) // Tausche
         {   btntausch = true; btnheapbuild = false; return "Tausche"; }
         else
         { btnversickern = true; return "Versickere"; }
-         
+
     }
-   
+
+
+
+
+
 }

@@ -18,22 +18,22 @@ public class btnDefaultCase : MonoBehaviour
       itemHolder[i] = setItemHolder[i];
     }
 
-       itemCost[0] = 14;
-    itemCost[1] = 58;
-    itemCost[2] = 87;
-    itemCost[3] = 4;
-    itemCost[4] = 0;
-    itemCost[5] = 9;
-    itemCost[6] = 26;
-    itemCost[7] = 12;
-    itemCost[8] = 133;
-    itemCost[9] = 33;
-    itemCost[10] = 733;
-    itemCost[11] = 633;
-    itemCost[12] = 833;
-    itemCost[13] = 443;
-    itemCost[14] = 213;
-
+    itemCost[0] = 1;  //0.14; //Laufwerk            1
+    itemCost[1] = 3; //0.56; //Laptop                   3
+    itemCost[2] = 4; //0.84; //HDD                      4
+    itemCost[3] = 6; //4.23; //Smartphone               6
+    itemCost[4] = 0; //0; //CD                          0
+    itemCost[5] = 7; //7.50; //Serverrückwand           7
+    itemCost[6] = 10;//26; //RAM                         10
+    itemCost[7] = 8;//11.75; //altes Mobiltelefon       8
+    itemCost[8] = 0;//0; //Ablenkspule                  0
+    itemCost[9] = 8;//11.75; //Chip                    8
+    itemCost[10] = 5;//1.41; //Computerstecker         5
+    itemCost[11] = 12;//80; //CPU                       12
+    itemCost[12] = 11;//27; //Goldstecker               11
+    itemCost[13] = 9;//25.85; //Handyleiterplatte      9
+    itemCost[14] = 2;//0.19; //Netzteil                2
+            
   }
 
 

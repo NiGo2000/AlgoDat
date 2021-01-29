@@ -147,6 +147,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
     - Class: 95
@@ -236,6 +238,8 @@ ScriptsOnlyBuild:
     - Class: 243
       Script: {instanceID: 0}
     - Class: 245
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
     Assets/Scenes/MainMenu.unity:
     - Class: 1
@@ -368,17 +372,33 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12024}
     - Class: 114
+      Script: {instanceID: 12026}
+    - Class: 114
       Script: {instanceID: 12072}
+    - Class: 114
+      Script: {instanceID: 12414}
     - Class: 114
       Script: {instanceID: 12516}
     - Class: 114
+      Script: {instanceID: 12750}
+    - Class: 114
       Script: {instanceID: 12992}
     - Class: 114
-      Script: {instanceID: 13052}
+      Script: {instanceID: 13020}
     - Class: 114
       Script: {instanceID: 13568}
     - Class: 114
+      Script: {instanceID: 13630}
+    - Class: 114
+      Script: {instanceID: 13972}
+    - Class: 114
       Script: {instanceID: 13986}
+    - Class: 114
+      Script: {instanceID: 14004}
+    - Class: 114
+      Script: {instanceID: 14016}
+    - Class: 114
+      Script: {instanceID: 14024}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -396,6 +416,12 @@ ScriptsOnlyBuild:
     - Class: 224
       Script: {instanceID: 0}
     - Class: 225
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     Assets/Scenes/Tutorial.unity:
     - Class: 1
@@ -749,7 +775,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 29fd734e82e0dd7f7cb1c2b54cf38bec
+      Hash: 9245ffc1d5ecca2d68edbdff9b579438
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SortierManager
@@ -917,7 +943,7 @@ ScriptsOnlyBuild:
     className: TMP_TextSelector_B
   - hash:
       serializedVersion: 2
-      Hash: 0e0094a141b60e2575d6089519d27ca9
+      Hash: 5e0bf33b60487bfb2d99add4e6abf2b9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: btnIndicator
@@ -1186,4 +1212,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/GameScene.unity
   - Assets/Scenes/Tutorial.unity
   - Assets/Scenes/Quiz.unity
-  playerPath: C:/Users/nick-/OneDrive/Desktop/AlgoDat/TestBuild/TrashSort.exe
+  playerPath: C:/Users/nick-/OneDrive/Desktop/AlgoDat/TrashSort_Windows/TrashSort.exe
