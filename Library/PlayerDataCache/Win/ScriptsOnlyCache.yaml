@@ -25,8 +25,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -211,6 +213,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14016}
     - Class: 114
       Script: {instanceID: 14024}
+    - Class: 114
+      Script: {instanceID: 194094}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -541,7 +545,7 @@ ScriptsOnlyBuild:
     className: GroupTrack
   - hash:
       serializedVersion: 2
-      Hash: 733dedda172561fbb01ed3ea15f8fb6d
+      Hash: 7f376e2695e302c2ce5dfea1ab1092ff
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: btnBuildTree

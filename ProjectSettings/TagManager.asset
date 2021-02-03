@@ -11,6 +11,7 @@ TagManager:
   - LineManager
   - TreeManager
   - SortingManager
+  - UI
   layers:
   - Default
   - TransparentFX

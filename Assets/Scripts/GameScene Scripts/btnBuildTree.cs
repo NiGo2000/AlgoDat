@@ -22,9 +22,12 @@ public class btnBuildTree : MonoBehaviour
   public Renderer rend;
   public static bool btntree = false;
 
+  public GameObject RecycleButton;
+
   void Start()
   {
-    
+
+    RecycleButton.SetActive(false);
     GameObject managerObj = GameObject.FindGameObjectWithTag(Tags.SortierManager);
     this.sortManager = managerObj.GetComponent<SortierManager>();
 
@@ -37,7 +40,8 @@ public class btnBuildTree : MonoBehaviour
 
 
   void Update()
-  {
+  {     
+
     if (done) {  return; }
 
     this.sortManager.stop = true;
@@ -77,6 +81,7 @@ public class btnBuildTree : MonoBehaviour
 
     for (int index = 0; index < this.treeManager.transform.childCount && index < this.array.Count; index++)
     {
+            
       Transform child = this.treeManager.transform.Find(index.ToString());
       if (child != null)
       {
@@ -127,11 +132,12 @@ public class btnBuildTree : MonoBehaviour
     this.sortManager.stop = false;
 
     this.btnStepText.text = this.sortManager.getStepName();
-    
-  }
+
+    }
 
   public void btnBuildTree_Click()
   {
+    
     btntree = true;
     int[] prices = btnDefaultCase.itemCost;
 
@@ -141,7 +147,10 @@ public class btnBuildTree : MonoBehaviour
     }
 
     this.done = false;
-  }
+
+    RecycleButton.SetActive(true);
+    }
+
     public static string getLineName(int index)
     {
         string name = string.Format("line {0}", index);
@@ -153,5 +162,6 @@ public class btnBuildTree : MonoBehaviour
         string name = string.Format("tree node {0}", index);
         return name;
     }
+
 
 }

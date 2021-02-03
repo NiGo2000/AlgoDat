@@ -13,6 +13,7 @@ public class MainMenuController : MonoBehaviour
     public void PlayButton()                                //start game
     {
         CrossfadeScene();
+        
         SceneManager.LoadScene("GameScene");
     }
 

@@ -13,7 +13,6 @@ public class PauseMenuController : MonoBehaviour
     public Animator CrossfadeAnim;
     public bool SettingsUIOpen = false;
 
-
     public void ResumeButton()                                
     {
         Background.SetActive(false);

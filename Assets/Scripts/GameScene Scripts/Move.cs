@@ -12,6 +12,7 @@ public class Move : MonoBehaviour
   public Vector3 endPosition;
   private bool done = false;
 
+
   // Use this for initialization
   void Update()
   {

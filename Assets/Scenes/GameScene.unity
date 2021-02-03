@@ -2292,6 +2292,7 @@ MonoBehaviour:
   gripper: {fileID: 1388335535}
   offset: {x: 0, y: 0, z: 0}
   rend: {fileID: 0}
+  RecycleButton: {fileID: 125467275}
 --- !u!114 &281029768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2351,6 +2352,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: 
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 281029767}
+        m_TargetAssemblyTypeName: btnBuildTree, Assembly-CSharp
+        m_MethodName: ButtonWait
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2596,6 +2609,7 @@ GameObject:
   - component: {fileID: 357582518}
   - component: {fileID: 357582517}
   - component: {fileID: 357582521}
+  - component: {fileID: 357582522}
   m_Layer: 5
   m_Name: GameSceneUI
   m_TagString: Untagged
@@ -2695,6 +2709,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &357582522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357582516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af738f9316657f94c893e9f5b1bdcbb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 979116222}
 --- !u!1001 &359236917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16602,7 +16629,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2080706884}
   - component: {fileID: 2080706883}
-  - component: {fileID: 2080706885}
   m_Layer: 0
   m_Name: ChangeSceneUI
   m_TagString: Untagged
@@ -16641,25 +16667,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2080706885
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2080706882}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b243e7fcb8fa704aa146c93ba389585, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SettingsUI: {fileID: 0}
-  PauseMenuUI: {fileID: 0}
-  GameSceneUI: {fileID: 0}
-  PauseMenuCamera: {fileID: 0}
-  Background: {fileID: 0}
-  CrossfadeAnim: {fileID: 0}
-  SettingsUIOpen: 0
 --- !u!1 &2100465746
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,12 +17,10 @@ public class SortierManager : MonoBehaviour
     public GameObject imageFertig;
 
 
-
-
-
     System.Collections.Generic.Queue<SchrittInfo> stepQueue;
 
     int targetStep = -1;
+
 
     void Awake()
     {
@@ -50,7 +48,7 @@ public class SortierManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+      
     }
    
     // Update is called once per frame
